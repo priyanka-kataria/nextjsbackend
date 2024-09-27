@@ -1,9 +1,10 @@
+
 import dbConnect from "@/app/lib/dbConnect";
 import UserModel from "@/Model/user";
 import {z} from "zod"
 import { usernameValidation } from "@/Schemas/SignUpSchema";
 import { request } from "http";
-import { SearchParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
+// import { SearchParamsContext } from "next/dist/shared/lib/hooks-client-context.shared-runtime";
 
 const UsernameQuerySchema= z.object({
    username:usernameValidation
@@ -21,6 +22,8 @@ export async function GET(request:Request){
 //     },
 //     {status:405})
 // }
+
+
   try {
      const {searchParams}= new URL(request.url)
      const queryParam={

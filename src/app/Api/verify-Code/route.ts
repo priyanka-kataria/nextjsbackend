@@ -19,6 +19,8 @@ export async function GET(request:Request){
         const isCodeNotExpired= new Date(user.verifyCodeExpiry)>new Date()
         if(isCodeNotExpired && iscodevalid){
               user.isVarified=true;
+            console.log("object")
+
               await user.save();
               return Response.json(
                 {
@@ -27,6 +29,7 @@ export async function GET(request:Request){
                 },
                 {status:500})
         }else if(!isCodeNotExpired){
+
             return Response.json(
                 {
                     success:false,
@@ -34,6 +37,7 @@ export async function GET(request:Request){
                 },
                 {status:400})
         }else{
+            console.log("object")
             return Response.json(
                 {
                     success:false,
